@@ -1,7 +1,5 @@
 import Layout from 'components/Layout';
 import Head from 'next/head';
-import Image from 'next/image';
-import nextjs from 'images/nextjs.jpg';
 import { getAllProjects } from 'services/projects';
 
 export const getStaticProps = () => {
@@ -12,7 +10,7 @@ export const getStaticProps = () => {
   };
 };
 
-type Project = {
+type ProjectProps = {
   createdAt: number;
   date: string;
   description: string;
@@ -23,7 +21,7 @@ type Project = {
 };
 
 type ProjectsProps = {
-  projects: Project[];
+  projects: ProjectProps[];
 };
 
 export default function Projects({ projects }: ProjectsProps) {
@@ -34,15 +32,7 @@ export default function Projects({ projects }: ProjectsProps) {
       </Head>
       <div>
         <h1 className="text-center text-3xl mb-10">Projects</h1>
-        <div className="relative h-96 w-full">
-          <Image
-            priority
-            src="https://assets.vercel.com/image/upload/v1662090959/front/nextjs/twitter-card.png"
-            alt="nextjs"
-            fill
-            objectFit="contain"
-          />
-        </div>
+
         <ul className="-mb-8">
           {projects.map((project) => (
             <li key={project.slug}>
@@ -69,12 +59,6 @@ export default function Projects({ projects }: ProjectsProps) {
                     </div>
                     <div className="mt-2 text-gray-700">
                       <p>{project.description}</p>
-                    </div>
-                    <img src={project.image} alt="nextjs" />
-                    {/* <Image src={nextjs} alt="nextjs" /> */}
-                    {/* <Image src={project.image} alt="nextjs" height={1080} width={1920} /> */}
-                    <div className="relative h-96 w-full">
-                      <Image src={project.image} alt="nextjs" fill objectFit="contain" />
                     </div>
                   </div>
                 </div>

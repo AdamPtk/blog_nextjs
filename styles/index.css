@@ -1,9 +1,11 @@
 @tailwind base;
-
-/* Write your own custom base styles here */
-
 @tailwind components;
-
 @tailwind utilities;
+
+@layer base {
+  h2 {
+    @apply text-2xl my-2;
+  }
+}
 
 /* Your own custom utilities */
