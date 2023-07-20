@@ -7,6 +7,7 @@ export default function About() {
   const {
     register,
     handleSubmit,
+    watch,
     formState: { errors }
   } = useForm();
 
